@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Classify</title>
+<title>Classify | Find Coaching Institutes</title>
 
 <style>
 
@@ -18,7 +17,7 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#0f172a;
+background:linear-gradient(135deg,#020617,#0f172a);
 color:white;
 }
 
@@ -28,60 +27,50 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:16px 8%;
-background:#020617;
+padding:18px 40px;
 border-bottom:1px solid #1e293b;
+position:relative;
 }
 
-/* LOGO */
-
 .logo{
-font-size:24px;
-font-weight:600;
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
+font-size:30px;
+font-weight:700;
+background:linear-gradient(90deg,#6366f1,#a855f7);
 -webkit-background-clip:text;
 color:transparent;
 }
 
-/* NAVBAR */
-
 nav{
 display:flex;
+gap:30px;
 align-items:center;
-gap:25px;
 }
 
 nav a{
 text-decoration:none;
 color:#cbd5f5;
-font-size:14px;
+font-size:15px;
 }
 
 nav a:hover{
 color:white;
 }
 
-/* SHARE BUTTON */
-
 .share-btn{
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
+background:linear-gradient(90deg,#6366f1,#a855f7);
 border:none;
-padding:7px 14px;
-border-radius:6px;
+padding:8px 18px;
+border-radius:8px;
 color:white;
 cursor:pointer;
-font-size:13px;
-}
-
-.share-btn:hover{
-opacity:0.9;
+font-size:14px;
 }
 
 /* MENU BUTTON */
 
 .menu-btn{
 display:none;
-font-size:22px;
+font-size:26px;
 cursor:pointer;
 }
 
@@ -89,141 +78,101 @@ cursor:pointer;
 
 .hero{
 text-align:center;
-padding:100px 20px;
-max-width:800px;
-margin:auto;
+padding:80px 20px;
 }
 
 .hero h1{
-font-size:38px;
-margin-bottom:15px;
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
+font-size:44px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#6366f1,#a855f7);
 -webkit-background-clip:text;
 color:transparent;
 }
 
 .hero p{
 color:#94a3b8;
-margin-bottom:35px;
-font-size:16px;
+margin-bottom:40px;
+font-size:18px;
 }
 
 /* SEARCH BOX */
 
 .search-box{
 background:#020617;
-padding:22px;
-border-radius:8px;
 border:1px solid #1e293b;
+padding:30px;
+border-radius:14px;
+
 display:flex;
-gap:10px;
-justify-content:center;
 flex-wrap:wrap;
-max-width:600px;
+gap:15px;
+justify-content:center;
+
+max-width:650px;
 margin:auto;
 }
 
-select,input{
-padding:10px;
-border-radius:6px;
+.search-box select,
+.search-box input{
+
+padding:12px;
+border-radius:8px;
 border:1px solid #334155;
+
 background:#0f172a;
 color:white;
-min-width:140px;
-}
 
-/* SEARCH BUTTON */
+flex:1;
+min-width:160px;
+}
 
 .search-btn{
-padding:10px 18px;
+
+background:linear-gradient(90deg,#6366f1,#a855f7);
 border:none;
-border-radius:6px;
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
+padding:12px 25px;
+border-radius:8px;
 color:white;
 cursor:pointer;
+
 }
-
-.search-btn:hover{
-opacity:0.9;
-}
-
-/* CTA */
-
-.cta{
-text-align:center;
-padding:70px 20px;
-background:#020617;
-border-top:1px solid #1e293b;
-border-bottom:1px solid #1e293b;
-}
-
-.cta h2{
-margin-bottom:8px;
-font-size:24px;
-}
-
-.cta p{
-color:#94a3b8;
-margin-bottom:18px;
-}
-
-/* REGISTER BUTTON */
-
-.register-btn{
-background:#10b981;
-padding:10px 18px;
-border:none;
-border-radius:6px;
-color:white;
-cursor:pointer;
-}
-
-.register-btn:hover{
-background:#059669;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-color:#94a3b8;
-font-size:14px;
-}
-
-/* MOBILE */
 
 /* MOBILE */
 
 @media(max-width:768px){
 
 header{
-position:relative;
+padding:18px 20px;
 }
 
 .menu-btn{
 display:block;
 }
 
+/* NAV DROPDOWN */
+
 nav{
 position:absolute;
-top:60px;
+
+top:65px;
 right:20px;
 
 background:#020617;
 border:1px solid #1e293b;
+
 border-radius:10px;
 
-padding:15px;
+padding:18px;
 
 flex-direction:column;
 align-items:flex-start;
-gap:12px;
+gap:14px;
 
 display:none;
+
 width:200px;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
 }
 
 nav.show{
@@ -236,14 +185,32 @@ font-size:14px;
 
 .share-btn{
 width:100%;
+text-align:center;
+}
+
+/* HERO TEXT */
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+/* SEARCH */
+
+.search-box{
+flex-direction:column;
 }
 
 }
+
 </style>
 
 </head>
-
 <body>
+
 
 <header>
 
@@ -265,24 +232,23 @@ width:100%;
 </header>
 
 
-
 <section class="hero">
 
 <h1>Find the Right Coaching Institute</h1>
 
-<p>
-Search and discover coaching institutes for national level exams.
-</p>
+<p>Search and discover coaching institutes for national level exams.</p>
+
 
 <div class="search-box">
 
 <select>
+
 <option>Select Exam</option>
 <option>JEE</option>
 <option>NEET</option>
-<option>CUET</option>
 <option>NDA</option>
-<option>UPSC</option>
+<option>CUET</option>
+
 </select>
 
 <input type="text" placeholder="Enter your city">
@@ -294,31 +260,12 @@ Search and discover coaching institutes for national level exams.
 </section>
 
 
-
-<section class="cta">
-
-<h2>Own a Coaching Institute?</h2>
-
-<p>List your institute on Classify and reach students searching for coaching.</p>
-
-<button class="register-btn">Register Institute</button>
-
-</section>
-
-
-
-<footer>
-
-<p>© 2026 Classify</p>
-
-</footer>
-
-
-
 <script>
 
 function toggleMenu(){
+
 document.getElementById("navMenu").classList.toggle("show");
+
 }
 
 function shareSite(){
@@ -327,7 +274,7 @@ if(navigator.share){
 
 navigator.share({
 title:"Classify",
-text:"Find coaching institutes easily",
+text:"Find the best coaching institutes",
 url:window.location.href
 });
 
@@ -342,6 +289,6 @@ alert("Link copied");
 
 </script>
 
-</body>
 
+</body>
 </html>
