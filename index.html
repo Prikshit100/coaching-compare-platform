@@ -339,6 +339,26 @@
     }
     .btn-save:hover { background: #c5cae9; }
 
+    /* HOW IT WORKS */
+    .how-section { background: var(--navy-dark); padding: 4.5rem 2rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .step-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px; padding: 2rem 1.5rem; text-align: center;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .step-card:hover { background: rgba(255,255,255,0.11); transform: translateY(-5px); }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--gold); color: var(--navy-dark);
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .step-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .step-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; color: white; margin-bottom: 0.5rem; font-size: 1rem; }
+    .step-card p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
     /* REVIEWS */
     .reviews-section { background: white; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.4rem; }
@@ -625,6 +645,42 @@
             <button class="btn-save">🔖</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="inner">
+    <div class="sec-head" style="justify-content:center; text-align:center; display:block; margin-bottom:2.5rem;">
+      <h2 style="color:white; font-family:'Syne',sans-serif; font-size:1.9rem; font-weight:800;">How <span style="color:var(--gold);">Classify</span> Works</h2>
+      <p style="color:rgba(255,255,255,0.5); margin-top:0.4rem; font-size:0.95rem;">Find your perfect coaching in 4 simple steps</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon">🔍</div>
+        <h3>Search</h3>
+        <p>Enter your city, exam, or coaching name to instantly discover institutes near you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon">⚖️</div>
+        <h3>Compare</h3>
+        <p>Compare fees, faculty, batch size and success rates of multiple institutes side by side.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon">⭐</div>
+        <h3>Read Reviews</h3>
+        <p>Check genuine student reviews and ratings before making any decision.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-icon">✅</div>
+        <h3>Apply</h3>
+        <p>Apply directly through Classify and kick-start your preparation journey today.</p>
       </div>
     </div>
   </div>
