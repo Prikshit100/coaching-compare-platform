@@ -7,279 +7,254 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:      #1a237e;
-      --navy-dark: #0d1257;
-      --navy-mid:  #283593;
-      --gold:      #FFC107;
-      --gold-dark: #f9a825;
-      --gold-pale: #FFF8E1;
-      --white:     #ffffff;
-      --bg:        #f4f5ff;
-      --card-bg:   #ffffff;
-      --border:    #dde0f5;
-      --text:      #0d1257;
-      --muted:     #6b7280;
-      --light:     #e8eaf6;
-      --success:   #22c55e;
+      --navy:#1a237e; --navy-dark:#0d1257; --navy-mid:#283593;
+      --gold:#FFC107; --gold-dark:#f9a825; --gold-pale:#FFF8E1;
+      --white:#ffffff; --bg:#f4f5ff; --card-bg:#ffffff;
+      --border:#dde0f5; --text:#0d1257; --muted:#6b7280; --light:#e8eaf6;
     }
-
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
 
-    /* ── NAVBAR ── */
-    nav {
-      position: sticky; top: 0; z-index: 999;
-      background: var(--navy-dark); height: 66px;
-      display: flex; align-items: center; padding: 0 2rem;
-      justify-content: space-between;
-      box-shadow: 0 2px 24px rgba(13,18,87,0.45);
-    }
-    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.65rem; color: var(--white); text-decoration: none; }
-    .logo span { color: var(--gold); }
-    .nav-center { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-center a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
-    .nav-center a:hover { color: var(--gold); }
-    .nav-right { display: flex; gap: 0.8rem; align-items: center; }
-    .btn-ghost { background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.42rem 1.1rem; border-radius: 25px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; text-decoration: none; }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-gold { background: var(--gold); border: none; color: var(--navy-dark); padding: 0.48rem 1.2rem; border-radius: 25px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; text-decoration: none; }
-    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { width: 24px; height: 2.5px; background: white; border-radius: 3px; display: block; }
-    .mobile-menu { display: none; flex-direction: column; background: var(--navy-dark); padding: 1rem 2rem 1.5rem; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
-    .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .mobile-menu.open { display: flex; }
+    /* NAVBAR */
+    nav { position:sticky; top:0; z-index:999; background:var(--navy-dark); height:66px; display:flex; align-items:center; padding:0 2rem; justify-content:space-between; box-shadow:0 2px 24px rgba(13,18,87,0.45); }
+    .logo { font-family:'Syne',sans-serif; font-weight:800; font-size:1.65rem; color:var(--white); text-decoration:none; }
+    .logo span { color:var(--gold); }
+    .nav-center { display:flex; gap:2.2rem; list-style:none; }
+    .nav-center a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.95rem; font-weight:600; transition:color 0.2s; }
+    .nav-center a:hover { color:var(--gold); }
+    .nav-right { display:flex; gap:0.8rem; align-items:center; }
+    .btn-ghost { background:transparent; border:2px solid rgba(255,255,255,0.3); color:white; padding:0.42rem 1.1rem; border-radius:25px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.85rem; cursor:pointer; transition:all 0.2s; text-decoration:none; }
+    .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+    .btn-gold-nav { background:var(--gold); border:none; color:var(--navy-dark); padding:0.48rem 1.2rem; border-radius:25px; font-family:'Syne',sans-serif; font-weight:800; font-size:0.85rem; cursor:pointer; transition:all 0.2s; text-decoration:none; }
+    .btn-gold-nav:hover { background:var(--gold-dark); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { width:24px; height:2.5px; background:white; border-radius:3px; display:block; }
+    .mobile-menu { display:none; flex-direction:column; background:var(--navy-dark); padding:1rem 2rem 1.5rem; gap:1rem; border-top:1px solid rgba(255,255,255,0.1); }
+    .mobile-menu a { color:rgba(255,255,255,0.8); text-decoration:none; font-weight:600; font-size:1rem; padding:0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+    .mobile-menu.open { display:flex; }
 
-    /* ── HERO BANNER ── */
-    .detail-hero {
-      background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 60%, #1e3a8a 100%);
-      padding: 2.5rem 2rem 0;
-      position: relative; overflow: hidden;
-    }
-    .detail-hero::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 380px; height: 380px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+    /* HERO */
+    .detail-hero { background:linear-gradient(140deg,var(--navy-dark) 0%,var(--navy) 60%,#1e3a8a 100%); padding:2.5rem 2rem 0; position:relative; overflow:hidden; }
+    .detail-hero::before { content:''; position:absolute; top:-80px; right:-80px; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle,rgba(255,193,7,0.1) 0%,transparent 65%); pointer-events:none; }
+    .hero-dots { position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px); background-size:28px 28px; pointer-events:none; }
+    .hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:1.5rem; }
+    .breadcrumb a { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+    .breadcrumb a:hover { color:var(--gold); }
+    .breadcrumb .sep { color:rgba(255,255,255,0.3); }
+    .breadcrumb .current { color:var(--gold); font-weight:600; }
 
-    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-top { display:flex; align-items:flex-start; gap:1.5rem; margin-bottom:1.5rem; animation:fadeUp 0.6s ease both; }
+    .inst-logo { width:82px; height:82px; border-radius:20px; background:white; display:flex; align-items:center; justify-content:center; font-size:2.3rem; flex-shrink:0; box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+    .hero-info h1 { font-family:'Syne',sans-serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:800; color:white; margin-bottom:0.4rem; }
+    .hero-loc { font-size:0.9rem; color:rgba(255,255,255,0.65); margin-bottom:0.8rem; }
+    .hero-chips { display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .hchip { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.76rem; font-weight:700; }
+    .hchip.gold { background:rgba(255,193,7,0.2); border-color:rgba(255,193,7,0.4); color:var(--gold); }
 
-    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
-    .breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-    .breadcrumb a:hover { color: var(--gold); }
-    .breadcrumb span { color: rgba(255,255,255,0.3); }
-    .breadcrumb .current { color: var(--gold); font-weight: 600; }
+    .hero-actions { display:flex; gap:0.8rem; flex-wrap:wrap; margin-bottom:2rem; animation:fadeUp 0.6s 0.1s ease both; }
+    .btn-apply-big { background:var(--gold); color:var(--navy-dark); border:none; padding:0.85rem 2rem; border-radius:50px; font-family:'Syne',sans-serif; font-weight:800; font-size:0.95rem; cursor:pointer; transition:all 0.25s; }
+    .btn-apply-big:hover { background:var(--gold-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,193,7,0.4); }
+    .btn-outline-hero { background:rgba(255,255,255,0.1); color:white; border:2px solid rgba(255,255,255,0.25); padding:0.85rem 1.5rem; border-radius:50px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem; cursor:pointer; transition:all 0.2s; }
+    .btn-outline-hero:hover { border-color:var(--gold); color:var(--gold); }
 
-    .hero-top {
-      display: flex; align-items: flex-start; gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .inst-logo {
-      width: 80px; height: 80px; border-radius: 20px;
-      background: white; display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; flex-shrink: 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    .hero-info { flex: 1; }
-    .hero-info h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 0.4rem; }
-    .hero-loc { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 0.8rem; }
-    .hero-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .hchip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.76rem; font-weight: 700; }
-    .hchip.gold { background: rgba(255,193,7,0.2); border-color: rgba(255,193,7,0.4); color: var(--gold); }
+    .quick-stats { display:flex; border-top:1px solid rgba(255,255,255,0.1); animation:fadeUp 0.6s 0.2s ease both; }
+    .qs-item { flex:1; text-align:center; padding:1.2rem 0.5rem; border-right:1px solid rgba(255,255,255,0.08); }
+    .qs-item:last-child { border-right:none; }
+    .qs-num { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800; color:var(--gold); }
+    .qs-lbl { font-size:0.72rem; color:rgba(255,255,255,0.5); margin-top:0.2rem; }
 
-    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.1s ease both; }
-    .btn-apply-big { background: var(--gold); color: var(--navy-dark); border: none; padding: 0.85rem 2rem; border-radius: 50px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; }
-    .btn-apply-big:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,193,7,0.4); }
-    .btn-save-big { background: rgba(255,255,255,0.1); color: white; border: 2px solid rgba(255,255,255,0.25); padding: 0.85rem 1.5rem; border-radius: 50px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
-    .btn-save-big:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-compare-big { background: rgba(255,255,255,0.1); color: white; border: 2px solid rgba(255,255,255,0.25); padding: 0.85rem 1.5rem; border-radius: 50px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
-    .btn-compare-big:hover { border-color: var(--gold); color: var(--gold); }
+    /* STICKY TABS */
+    .sticky-tabs { position:sticky; top:66px; z-index:100; background:white; border-bottom:2px solid var(--border); box-shadow:0 4px 12px rgba(26,35,126,0.08); }
+    .tabs-inner { max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; overflow-x:auto; }
+    .tab-link { padding:1rem 1.3rem; font-family:'Syne',sans-serif; font-weight:700; font-size:0.86rem; color:var(--muted); border-bottom:3px solid transparent; white-space:nowrap; transition:all 0.2s; cursor:pointer; text-decoration:none; display:block; }
+    .tab-link:hover { color:var(--navy); }
+    .tab-link.active { color:var(--navy); border-bottom-color:var(--gold); }
 
-    /* Quick stats strip */
-    .quick-stats {
-      display: flex; gap: 0; margin-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .qs-item { flex: 1; text-align: center; padding: 1.2rem 0.5rem; border-right: 1px solid rgba(255,255,255,0.08); }
-    .qs-item:last-child { border-right: none; }
-    .qs-num { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--gold); }
-    .qs-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+    /* MAIN LAYOUT */
+    .main-layout { max-width:1100px; margin:0 auto; padding:2.5rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2rem; align-items:start; }
 
-    /* ── STICKY TABS ── */
-    .sticky-tabs {
-      position: sticky; top: 66px; z-index: 100;
-      background: white; border-bottom: 2px solid var(--border);
-      box-shadow: 0 4px 12px rgba(26,35,126,0.08);
-    }
-    .tabs-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 0; overflow-x: auto; }
-    .tab-link {
-      padding: 1rem 1.4rem; font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: 0.88rem; color: var(--muted); text-decoration: none;
-      border-bottom: 3px solid transparent; white-space: nowrap;
-      transition: all 0.2s; cursor: pointer;
-    }
-    .tab-link:hover { color: var(--navy); }
-    .tab-link.active { color: var(--navy); border-bottom-color: var(--gold); }
-
-    /* ── MAIN LAYOUT ── */
-    .main-layout { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
-
-    /* ── SECTIONS ── */
-    .section { background: white; border-radius: 20px; border: 1.5px solid var(--border); padding: 1.8rem; margin-bottom: 1.5rem; animation: fadeUp 0.5s ease both; }
-    .section:nth-child(1) { animation-delay: 0.05s; }
-    .section:nth-child(2) { animation-delay: 0.1s; }
-    .section:nth-child(3) { animation-delay: 0.15s; }
-    .section:nth-child(4) { animation-delay: 0.2s; }
-    .section:nth-child(5) { animation-delay: 0.25s; }
-
-    .sec-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
-    .sec-title span { color: var(--gold-dark); }
+    /* SECTIONS */
+    .section { background:white; border-radius:20px; border:1.5px solid var(--border); padding:1.8rem; margin-bottom:1.5rem; }
+    .section { animation:fadeUp 0.5s ease both; }
+    .sec-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800; color:var(--navy-dark); margin-bottom:1.3rem; display:flex; align-items:center; gap:0.5rem; }
+    .sec-title em { font-style:normal; color:var(--gold-dark); }
 
     /* About */
-    .about-text { font-size: 0.92rem; color: #374151; line-height: 1.8; margin-bottom: 1rem; }
-    .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem; }
-    .highlight-item { display: flex; align-items: center; gap: 0.6rem; background: var(--bg); border-radius: 12px; padding: 0.7rem 0.9rem; }
-    .hi-icon { font-size: 1.1rem; }
-    .hi-text { font-size: 0.83rem; color: var(--text); font-weight: 600; }
+    .about-text { font-size:0.92rem; color:#374151; line-height:1.8; margin-bottom:0.9rem; }
+    .highlights-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.2rem; }
+    .highlight-item { display:flex; align-items:center; gap:0.6rem; background:var(--bg); border-radius:12px; padding:0.7rem 0.9rem; border:1px solid var(--border); }
+    .hi-icon { font-size:1.1rem; }
+    .hi-text { font-size:0.83rem; font-weight:600; color:var(--text); }
 
-    /* Key Info Grid */
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
-    .info-box { background: var(--bg); border-radius: 16px; padding: 1.1rem; border: 1.5px solid var(--border); transition: border-color 0.2s; }
-    .info-box:hover { border-color: var(--navy-mid); }
-    .ib-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .ib-lbl { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.2rem; }
-    .ib-val { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--navy-dark); }
+    /* IMAGE GALLERY */
+    .gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:180px 180px; gap:0.8rem; }
+    .gallery-item { border-radius:16px; overflow:hidden; position:relative; cursor:pointer; }
+    .gallery-item:first-child { grid-row:span 2; }
+    .gallery-img {
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:3rem; transition:transform 0.35s;
+      position:relative;
+    }
+    .gallery-item:hover .gallery-img { transform:scale(1.06); }
+    .gallery-overlay { position:absolute; inset:0; background:rgba(13,18,87,0.35); opacity:0; transition:opacity 0.3s; display:flex; align-items:center; justify-content:center; color:white; font-family:'Syne',sans-serif; font-weight:700; font-size:0.85rem; }
+    .gallery-item:hover .gallery-overlay { opacity:1; }
 
-    /* Courses / Batches */
-    .course-list { display: flex; flex-direction: column; gap: 0.8rem; }
-    .course-item { background: var(--bg); border-radius: 14px; padding: 1rem 1.2rem; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; }
-    .course-item:hover { border-color: var(--navy-mid); transform: translateX(4px); }
-    .ci-left h4 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.2rem; }
-    .ci-left p { font-size: 0.78rem; color: var(--muted); }
-    .ci-right { text-align: right; }
-    .ci-fee { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--navy-dark); }
-    .ci-badge { display: inline-block; background: var(--gold-pale); color: #b45309; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 8px; margin-top: 0.2rem; }
+    /* colour-coded placeholder images */
+    .gi-1 { background:linear-gradient(135deg,#1a237e,#3949ab); }
+    .gi-2 { background:linear-gradient(135deg,#1b5e20,#388e3c); }
+    .gi-3 { background:linear-gradient(135deg,#b71c1c,#e53935); }
+    .gi-4 { background:linear-gradient(135deg,#e65100,#fb8c00); }
+    .gi-5 { background:linear-gradient(135deg,#4a148c,#8e24aa); }
 
-    /* Faculty */
-    .faculty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
-    .faculty-card { background: var(--bg); border-radius: 16px; padding: 1.2rem; text-align: center; border: 1.5px solid var(--border); transition: all 0.25s; }
-    .faculty-card:hover { border-color: var(--navy-mid); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(26,35,126,0.1); }
-    .fc-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 0.7rem; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: white; }
-    .av-navy { background: linear-gradient(135deg, var(--navy), #3949ab); }
-    .av-red  { background: linear-gradient(135deg, #c62828, #ef5350); }
-    .av-green{ background: linear-gradient(135deg, #1b5e20, #388e3c); }
-    .av-purple{background: linear-gradient(135deg, #4a148c, #7b1fa2); }
-    .fc-name { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.2rem; }
-    .fc-sub  { font-size: 0.74rem; color: var(--muted); }
-    .fc-tag  { display: inline-block; background: var(--light); color: var(--navy); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 8px; margin-top: 0.4rem; }
+    .gallery-more { position:absolute; inset:0; background:rgba(13,18,87,0.6); display:flex; align-items:center; justify-content:center; color:white; font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem; border-radius:16px; cursor:pointer; }
 
-    /* Results */
-    .results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-    .result-box { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); border-radius: 16px; padding: 1.2rem; text-align: center; }
-    .rb-num { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--gold); }
-    .rb-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+    /* LIGHTBOX */
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center; }
+    .lightbox.open { display:flex; }
+    .lb-inner { background:var(--navy-dark); border-radius:20px; padding:2rem; max-width:600px; width:90%; text-align:center; position:relative; }
+    .lb-close { position:absolute; top:1rem; right:1rem; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; opacity:0.7; }
+    .lb-close:hover { opacity:1; }
+    .lb-img { width:100%; height:300px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:5rem; margin-bottom:1rem; }
+    .lb-caption { color:rgba(255,255,255,0.8); font-size:0.9rem; }
 
-    .topper-list { display: flex; flex-direction: column; gap: 0.7rem; }
-    .topper-item { display: flex; align-items: center; gap: 1rem; background: var(--bg); border-radius: 12px; padding: 0.8rem 1rem; }
-    .topper-rank { width: 34px; height: 34px; border-radius: 10px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; color: var(--navy-dark); flex-shrink: 0; }
-    .topper-info h4 { font-weight: 700; font-size: 0.88rem; color: var(--navy-dark); }
-    .topper-info p { font-size: 0.76rem; color: var(--muted); }
+    /* KEY INFO */
+    .info-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); gap:1rem; }
+    .info-box { background:var(--bg); border-radius:16px; padding:1.1rem; border:1.5px solid var(--border); transition:border-color 0.2s,transform 0.2s; }
+    .info-box:hover { border-color:var(--navy-mid); transform:translateY(-3px); }
+    .ib-icon { font-size:1.4rem; margin-bottom:0.5rem; }
+    .ib-lbl { font-size:0.72rem; color:var(--muted); }
+    .ib-val { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; color:var(--navy-dark); }
 
-    /* Reviews */
-    .rating-summary { display: flex; gap: 2rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-    .big-rating { text-align: center; }
-    .big-num { font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--navy-dark); line-height: 1; }
-    .big-stars { color: var(--gold); font-size: 1.2rem; margin: 0.4rem 0; }
-    .big-count { font-size: 0.8rem; color: var(--muted); }
-    .rating-bars { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-    .bar-row { display: flex; align-items: center; gap: 0.7rem; }
-    .bar-lbl { font-size: 0.8rem; color: var(--muted); width: 28px; text-align: right; flex-shrink: 0; }
-    .bar-track { flex: 1; height: 8px; background: var(--light); border-radius: 4px; overflow: hidden; }
-    .bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 1s ease; }
-    .bar-pct { font-size: 0.75rem; color: var(--muted); width: 30px; flex-shrink: 0; }
+    /* COURSES */
+    .course-list { display:flex; flex-direction:column; gap:0.8rem; }
+    .course-item { background:var(--bg); border-radius:14px; padding:1rem 1.2rem; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; transition:all 0.2s; }
+    .course-item:hover { border-color:var(--navy-mid); transform:translateX(4px); }
+    .ci-left h4 { font-family:'Syne',sans-serif; font-size:0.92rem; font-weight:700; color:var(--navy-dark); margin-bottom:0.2rem; }
+    .ci-left p { font-size:0.78rem; color:var(--muted); }
+    .ci-fee { font-family:'Syne',sans-serif; font-weight:800; font-size:0.95rem; color:var(--navy-dark); text-align:right; }
+    .ci-badge { display:inline-block; background:var(--gold-pale); color:#b45309; font-size:0.7rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:8px; margin-top:0.25rem; }
 
-    .reviews-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .review-card { background: var(--bg); border-radius: 16px; padding: 1.3rem; border: 1.5px solid var(--border); }
-    .rev-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.8rem; }
-    .rev-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.9rem; color: white; flex-shrink: 0; }
-    .rev-name { font-weight: 700; font-size: 0.88rem; color: var(--navy-dark); }
-    .rev-meta { font-size: 0.74rem; color: var(--muted); }
-    .rev-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.6rem; }
-    .rev-text { font-size: 0.87rem; color: #374151; line-height: 1.7; }
-    .rev-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.8rem; }
-    .rev-tag { background: var(--light); color: var(--navy); padding: 0.18rem 0.6rem; border-radius: 8px; font-size: 0.72rem; font-weight: 700; }
+    /* FACULTY — detailed */
+    .faculty-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.2rem; }
+    .faculty-card { background:var(--bg); border-radius:18px; border:1.5px solid var(--border); overflow:hidden; transition:all 0.25s; }
+    .faculty-card:hover { border-color:var(--navy-mid); transform:translateY(-4px); box-shadow:0 10px 28px rgba(26,35,126,0.12); }
+    .fc-top { padding:1.4rem 1.2rem 1rem; display:flex; align-items:center; gap:1rem; }
+    .fc-avatar { width:62px; height:62px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem; color:white; flex-shrink:0; border:3px solid white; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .av-1 { background:linear-gradient(135deg,#0d1257,#1a237e); }
+    .av-2 { background:linear-gradient(135deg,#b71c1c,#e53935); }
+    .av-3 { background:linear-gradient(135deg,#1b5e20,#388e3c); }
+    .av-4 { background:linear-gradient(135deg,#4a148c,#8e24aa); }
+    .av-5 { background:linear-gradient(135deg,#e65100,#fb8c00); }
+    .av-6 { background:linear-gradient(135deg,#006064,#00838f); }
+    .fc-header h4 { font-family:'Syne',sans-serif; font-weight:700; font-size:0.95rem; color:var(--navy-dark); margin-bottom:0.15rem; }
+    .fc-subject { font-size:0.78rem; color:var(--muted); }
+    .fc-body { padding:0 1.2rem 1.2rem; }
+    .fc-qual { display:inline-flex; align-items:center; gap:0.3rem; background:var(--light); color:var(--navy); font-size:0.72rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:8px; margin-bottom:0.7rem; }
+    .fc-stats { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-bottom:0.7rem; }
+    .fc-stat { background:white; border-radius:10px; padding:0.5rem; text-align:center; border:1px solid var(--border); }
+    .fc-stat-num { font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:800; color:var(--navy-dark); }
+    .fc-stat-lbl { font-size:0.65rem; color:var(--muted); }
+    .fc-desc { font-size:0.78rem; color:#374151; line-height:1.6; }
+    .fc-achievements { display:flex; flex-wrap:wrap; gap:0.3rem; margin-top:0.7rem; }
+    .fc-ach { background:var(--gold-pale); color:#b45309; font-size:0.68rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:6px; }
 
-    .load-more { width: 100%; padding: 0.8rem; background: var(--bg); border: 1.5px solid var(--border); border-radius: 12px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--navy); cursor: pointer; transition: all 0.2s; margin-top: 1rem; }
-    .load-more:hover { background: var(--light); }
+    /* RESULTS */
+    .results-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1.5rem; }
+    .result-box { background:linear-gradient(135deg,var(--navy-dark),var(--navy)); border-radius:16px; padding:1.3rem; text-align:center; }
+    .rb-num { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--gold); }
+    .rb-lbl { font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:0.2rem; }
+    .topper-list { display:flex; flex-direction:column; gap:0.7rem; }
+    .topper-item { display:flex; align-items:center; gap:1rem; background:var(--bg); border-radius:12px; padding:0.8rem 1rem; border:1px solid var(--border); transition:all 0.2s; }
+    .topper-item:hover { border-color:var(--navy-mid); transform:translateX(4px); }
+    .topper-rank { width:36px; height:36px; border-radius:10px; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:0.8rem; color:var(--navy-dark); flex-shrink:0; }
+    .topper-info h4 { font-weight:700; font-size:0.88rem; color:var(--navy-dark); }
+    .topper-info p { font-size:0.76rem; color:var(--muted); }
 
-    /* Write review */
-    .write-review { background: var(--navy-dark); border-radius: 16px; padding: 1.3rem; margin-bottom: 1.5rem; }
-    .write-review h4 { font-family: 'Syne', sans-serif; font-weight: 700; color: white; margin-bottom: 0.5rem; font-size: 0.95rem; }
-    .write-review p { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
-    .star-select { display: flex; gap: 0.3rem; margin-bottom: 1rem; cursor: pointer; }
-    .star-select span { font-size: 1.5rem; color: rgba(255,255,255,0.3); transition: color 0.15s; }
-    .star-select span.lit { color: var(--gold); }
-    .review-textarea { width: 100%; padding: 0.8rem; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 0.88rem; background: rgba(255,255,255,0.07); color: white; resize: none; outline: none; transition: border-color 0.2s; }
-    .review-textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .review-textarea:focus { border-color: var(--gold); }
-    .btn-submit-review { background: var(--gold); color: var(--navy-dark); border: none; padding: 0.7rem 1.5rem; border-radius: 12px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.88rem; cursor: pointer; transition: all 0.2s; margin-top: 0.8rem; }
-    .btn-submit-review:hover { background: var(--gold-dark); }
+    /* REVIEWS */
+    .rating-summary { display:flex; gap:2rem; align-items:center; margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border); }
+    .big-num { font-family:'Syne',sans-serif; font-size:3.5rem; font-weight:800; color:var(--navy-dark); line-height:1; }
+    .big-stars { color:var(--gold); font-size:1.2rem; margin:0.4rem 0; }
+    .big-count { font-size:0.8rem; color:var(--muted); }
+    .rating-bars { flex:1; display:flex; flex-direction:column; gap:0.5rem; }
+    .bar-row { display:flex; align-items:center; gap:0.7rem; }
+    .bar-lbl { font-size:0.8rem; color:var(--muted); width:28px; text-align:right; flex-shrink:0; }
+    .bar-track { flex:1; height:8px; background:var(--light); border-radius:4px; overflow:hidden; }
+    .bar-fill { height:100%; background:var(--gold); border-radius:4px; width:0%; transition:width 1.2s ease; }
+    .bar-pct { font-size:0.75rem; color:var(--muted); width:30px; flex-shrink:0; }
+    .reviews-list { display:flex; flex-direction:column; gap:1.2rem; }
+    .review-card { background:var(--bg); border-radius:16px; padding:1.3rem; border:1.5px solid var(--border); }
+    .rev-header { display:flex; align-items:center; gap:0.85rem; margin-bottom:0.8rem; }
+    .rev-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:0.9rem; color:white; flex-shrink:0; }
+    .rev-name { font-weight:700; font-size:0.88rem; color:var(--navy-dark); }
+    .rev-meta { font-size:0.74rem; color:var(--muted); }
+    .rev-stars { color:var(--gold); font-size:0.85rem; margin-bottom:0.6rem; }
+    .rev-text { font-size:0.87rem; color:#374151; line-height:1.7; font-style:italic; }
+    .rev-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.8rem; }
+    .rev-tag { background:var(--light); color:var(--navy); padding:0.18rem 0.6rem; border-radius:8px; font-size:0.72rem; font-weight:700; }
+    .load-more-btn { width:100%; padding:0.8rem; background:var(--bg); border:1.5px solid var(--border); border-radius:12px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.88rem; color:var(--navy); cursor:pointer; transition:all 0.2s; margin-top:1rem; }
+    .load-more-btn:hover { background:var(--light); }
 
-    /* ── SIDEBAR ── */
-    .detail-sidebar { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 1.2rem; }
+    /* WRITE REVIEW */
+    .write-review { background:linear-gradient(135deg,var(--navy-dark),var(--navy)); border-radius:16px; padding:1.5rem; margin-bottom:1.5rem; }
+    .write-review h4 { font-family:'Syne',sans-serif; font-weight:700; color:white; margin-bottom:0.4rem; }
+    .write-review p { font-size:0.82rem; color:rgba(255,255,255,0.55); margin-bottom:1rem; }
+    .star-picker { display:flex; gap:0.4rem; margin-bottom:1rem; }
+    .star-picker span { font-size:1.8rem; color:rgba(255,255,255,0.25); cursor:pointer; transition:color 0.15s; line-height:1; }
+    .star-picker span.lit { color:var(--gold); }
+    .rev-input { width:100%; padding:0.85rem; border:1.5px solid rgba(255,255,255,0.15); border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.88rem; background:rgba(255,255,255,0.08); color:white; resize:none; outline:none; transition:border-color 0.2s; }
+    .rev-input::placeholder { color:rgba(255,255,255,0.3); }
+    .rev-input:focus { border-color:var(--gold); }
+    .btn-sub-review { background:var(--gold); color:var(--navy-dark); border:none; padding:0.72rem 1.6rem; border-radius:12px; font-family:'Syne',sans-serif; font-weight:800; font-size:0.88rem; cursor:pointer; transition:all 0.2s; margin-top:0.8rem; }
+    .btn-sub-review:hover { background:var(--gold-dark); transform:translateY(-1px); }
 
-    .sidebar-card { background: white; border-radius: 20px; border: 1.5px solid var(--border); padding: 1.5rem; animation: fadeUp 0.6s 0.3s ease both; }
+    /* SIDEBAR */
+    .detail-sidebar { position:sticky; top:120px; display:flex; flex-direction:column; gap:1.2rem; }
+    .sidebar-card { background:white; border-radius:20px; border:1.5px solid var(--border); padding:1.5rem; animation:fadeUp 0.6s 0.3s ease both; }
+    .sc-title { font-family:'Syne',sans-serif; font-weight:800; font-size:0.95rem; color:var(--navy-dark); margin-bottom:1.1rem; }
+    .apply-card { background:linear-gradient(135deg,var(--navy-dark),var(--navy)); border-radius:20px; padding:1.5rem; animation:fadeUp 0.6s 0.3s ease both; }
+    .apply-card .sc-title { color:white; }
+    .apply-card p { font-size:0.83rem; color:rgba(255,255,255,0.6); margin-bottom:1.2rem; line-height:1.6; }
+    .btn-apply-side { width:100%; padding:0.85rem; background:var(--gold); border:none; border-radius:14px; font-family:'Syne',sans-serif; font-weight:800; font-size:0.95rem; color:var(--navy-dark); cursor:pointer; transition:all 0.2s; margin-bottom:0.7rem; }
+    .btn-apply-side:hover { background:var(--gold-dark); transform:translateY(-1px); }
+    .btn-brochure { width:100%; padding:0.75rem; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.2); border-radius:14px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.88rem; color:white; cursor:pointer; transition:all 0.2s; }
+    .btn-brochure:hover { border-color:var(--gold); color:var(--gold); }
+    .contact-row { display:flex; align-items:center; gap:0.8rem; padding:0.7rem 0; border-bottom:1px solid var(--border); }
+    .contact-row:last-child { border-bottom:none; }
+    .cr-icon { width:36px; height:36px; border-radius:10px; background:var(--light); display:flex; align-items:center; justify-content:center; font-size:0.95rem; flex-shrink:0; }
+    .cr-lbl { font-size:0.72rem; color:var(--muted); }
+    .cr-val { font-size:0.85rem; font-weight:700; color:var(--navy-dark); }
+    .similar-item { display:flex; align-items:center; gap:0.8rem; padding:0.7rem 0; border-bottom:1px solid var(--border); cursor:pointer; transition:all 0.2s; text-decoration:none; }
+    .similar-item:last-child { border-bottom:none; }
+    .similar-item:hover .si-name { color:var(--navy); }
+    .si-icon { width:40px; height:40px; border-radius:12px; background:var(--light); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .si-name { font-weight:700; font-size:0.86rem; color:var(--text); transition:color 0.2s; }
+    .si-meta { font-size:0.74rem; color:var(--muted); }
+    .si-stars { font-size:0.76rem; color:var(--gold); }
 
-    .sc-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--navy-dark); margin-bottom: 1.1rem; }
-
-    .apply-card { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); border-radius: 20px; padding: 1.5rem; color: white; }
-    .apply-card .sc-title { color: white; }
-    .apply-card p { font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-bottom: 1.2rem; line-height: 1.6; }
-    .btn-apply-sidebar { width: 100%; padding: 0.85rem; background: var(--gold); border: none; border-radius: 14px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--navy-dark); cursor: pointer; transition: all 0.2s; margin-bottom: 0.7rem; }
-    .btn-apply-sidebar:hover { background: var(--gold-dark); transform: translateY(-1px); }
-    .btn-brochure { width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: 14px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; color: white; cursor: pointer; transition: all 0.2s; }
-    .btn-brochure:hover { border-color: var(--gold); color: var(--gold); }
-
-    .contact-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
-    .contact-row:last-child { border-bottom: none; }
-    .cr-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
-    .cr-label { font-size: 0.72rem; color: var(--muted); }
-    .cr-val { font-size: 0.85rem; font-weight: 700; color: var(--navy-dark); }
-
-    .similar-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
-    .similar-item:last-child { border-bottom: none; }
-    .similar-item:hover .si-name { color: var(--navy); }
-    .si-icon { width: 40px; height: 40px; border-radius: 12px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .si-info { flex: 1; }
-    .si-name { font-weight: 700; font-size: 0.86rem; color: var(--text); transition: color 0.2s; }
-    .si-meta { font-size: 0.74rem; color: var(--muted); }
-    .si-rating { font-size: 0.78rem; color: var(--gold); }
-
-    /* ── ANIMATIONS ── */
+    /* ANIMATIONS */
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media(max-width:900px){
-      .main-layout{grid-template-columns:1fr;}
-      .detail-sidebar{position:static;}
-      .nav-center,.nav-right{display:none;}
-      .hamburger{display:flex;}
-      .results-row{grid-template-columns:1fr 1fr;}
-      .quick-stats{flex-wrap:wrap;}
-      .qs-item{min-width:50%;}
-      .about-highlights{grid-template-columns:1fr;}
+      .main-layout { grid-template-columns:1fr; }
+      .detail-sidebar { position:static; }
+      .nav-center,.nav-right { display:none; }
+      .hamburger { display:flex; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+      .gallery-item:first-child { grid-row:span 1; }
+      .results-row { grid-template-columns:1fr 1fr; }
+      .quick-stats { flex-wrap:wrap; }
+      .qs-item { min-width:33.33%; }
     }
     @media(max-width:560px){
-      .results-row{grid-template-columns:1fr;}
-      .faculty-grid{grid-template-columns:1fr 1fr;}
-      .info-grid{grid-template-columns:1fr 1fr;}
-      .rating-summary{flex-direction:column; align-items:flex-start; gap:1rem;}
+      .highlights-grid { grid-template-columns:1fr; }
+      .faculty-grid { grid-template-columns:1fr; }
+      .results-row { grid-template-columns:1fr; }
+      .rating-summary { flex-direction:column; }
+      .gallery-grid { grid-template-columns:1fr; grid-template-rows:auto; }
     }
   </style>
 </head>
@@ -291,39 +266,38 @@
   <ul class="nav-center">
     <li><a href="index.html">Home</a></li>
     <li><a href="institutes.html">Institutes</a></li>
-    <li><a href="compare.html">Compare</a></li>
+    <li><a href="login.html?redirect=compare.html">Compare</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-right">
     <a href="login.html" class="btn-ghost">Log In</a>
-    <a href="login.html" class="btn-gold">Sign Up Free</a>
+    <a href="login.html" class="btn-gold-nav">Sign Up Free</a>
   </div>
   <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="institutes.html">Institutes</a>
-  <a href="compare.html">Compare</a>
+  <a href="login.html?redirect=compare.html">Compare</a>
   <a href="about.html">About</a>
   <a href="login.html">Log In</a>
-  <a href="login.html">Sign Up Free →</a>
+  <a href="login.html">Sign Up →</a>
 </div>
 
-<!-- DETAIL HERO -->
+<!-- HERO -->
 <div class="detail-hero">
   <div class="hero-dots"></div>
   <div class="hero-inner">
     <div class="breadcrumb">
-      <a href="index.html">Home</a><span>›</span>
-      <a href="institutes.html">Institutes</a><span>›</span>
+      <a href="index.html">Home</a><span class="sep"> › </span>
+      <a href="institutes.html">Institutes</a><span class="sep"> › </span>
       <span class="current">Allen Career Institute</span>
     </div>
-
     <div class="hero-top">
       <div class="inst-logo">🏫</div>
       <div class="hero-info">
         <h1>Allen Career Institute</h1>
-        <div class="hero-loc">📍 Kota, Rajasthan &nbsp;|&nbsp; ⭐ 4.8 &nbsp;|&nbsp; 1,530 Reviews &nbsp;|&nbsp; Est. 1988</div>
+        <div class="hero-loc">📍 Kota, Rajasthan &nbsp;·&nbsp; ⭐ 4.8 &nbsp;·&nbsp; 1,530 Reviews &nbsp;·&nbsp; Est. 1988</div>
         <div class="hero-chips">
           <span class="hchip">JEE</span>
           <span class="hchip">NEET</span>
@@ -333,18 +307,16 @@
         </div>
       </div>
     </div>
-
     <div class="hero-actions">
       <button class="btn-apply-big" onclick="location.href='login.html'">🚀 Apply Now</button>
-      <button class="btn-save-big" onclick="toggleSaveHero(this)">🔖 Save Institute</button>
-      <button class="btn-compare-big" onclick="location.href='compare.html'">⚖️ Add to Compare</button>
+      <button class="btn-outline-hero" id="saveBtn" onclick="toggleSave(this)">🔖 Save</button>
+      <button class="btn-outline-hero" onclick="location.href='login.html?redirect=compare.html'">⚖️ Compare</button>
     </div>
-
     <div class="quick-stats">
       <div class="qs-item"><div class="qs-num">82%</div><div class="qs-lbl">Success Rate</div></div>
-      <div class="qs-item"><div class="qs-num">₹1.2L–1.8L</div><div class="qs-lbl">Fees / Year</div></div>
+      <div class="qs-item"><div class="qs-num">₹1.2–1.8L</div><div class="qs-lbl">Fees / Year</div></div>
       <div class="qs-item"><div class="qs-num">60–80</div><div class="qs-lbl">Batch Size</div></div>
-      <div class="qs-item"><div class="qs-num">35+</div><div class="qs-lbl">Years Experience</div></div>
+      <div class="qs-item"><div class="qs-num">35+ yrs</div><div class="qs-lbl">Experience</div></div>
       <div class="qs-item"><div class="qs-num">4.8 ★</div><div class="qs-lbl">Rating</div></div>
     </div>
   </div>
@@ -353,362 +325,450 @@
 <!-- STICKY TABS -->
 <div class="sticky-tabs">
   <div class="tabs-inner">
-    <a class="tab-link active" onclick="scrollToSection('about')">About</a>
-    <a class="tab-link" onclick="scrollToSection('courses')">Courses</a>
-    <a class="tab-link" onclick="scrollToSection('faculty')">Faculty</a>
-    <a class="tab-link" onclick="scrollToSection('results')">Results</a>
-    <a class="tab-link" onclick="scrollToSection('reviews')">Reviews</a>
+    <a class="tab-link active" onclick="goTo('about',this)">About</a>
+    <a class="tab-link" onclick="goTo('gallery',this)">Photos</a>
+    <a class="tab-link" onclick="goTo('courses',this)">Courses</a>
+    <a class="tab-link" onclick="goTo('faculty',this)">Faculty</a>
+    <a class="tab-link" onclick="goTo('results',this)">Results</a>
+    <a class="tab-link" onclick="goTo('reviews',this)">Reviews</a>
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
+<!-- MAIN -->
 <div class="main-layout">
+<div>
 
-  <!-- LEFT CONTENT -->
-  <div>
-
-    <!-- ABOUT -->
-    <div class="section" id="about">
-      <div class="sec-title">📖 About <span>Allen Career Institute</span></div>
-      <p class="about-text">Allen Career Institute, founded in 1988 in Kota, Rajasthan, is one of India's most prestigious coaching institutes for competitive exam preparation. With over 35 years of excellence, Allen has helped hundreds of thousands of students achieve their dreams of getting into IITs, AIIMS, and other premier institutions.</p>
-      <p class="about-text">The institute is known for its rigorous academic curriculum, experienced faculty, and a structured approach to exam preparation. Allen's study material is considered among the best in the industry, and its mock test series closely mirrors actual exam patterns.</p>
-      <div class="about-highlights">
-        <div class="highlight-item"><span class="hi-icon">🏆</span><span class="hi-text">2,50,000+ Selections till date</span></div>
-        <div class="highlight-item"><span class="hi-icon">👨‍🏫</span><span class="hi-text">500+ Expert Faculty Members</span></div>
-        <div class="highlight-item"><span class="hi-icon">📚</span><span class="hi-text">World-class Study Material</span></div>
-        <div class="highlight-item"><span class="hi-icon">🧪</span><span class="hi-text">Regular Mock Test Series</span></div>
-        <div class="highlight-item"><span class="hi-icon">🏫</span><span class="hi-text">State-of-the-art Infrastructure</span></div>
-        <div class="highlight-item"><span class="hi-icon">📱</span><span class="hi-text">Online + Offline Hybrid Mode</span></div>
-      </div>
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="sec-title">📖 About <em>Allen Career Institute</em></div>
+    <p class="about-text">Allen Career Institute, founded in 1988 in Kota, Rajasthan, is one of India's most prestigious coaching institutes for competitive exam preparation. With over 35 years of excellence, Allen has helped lakhs of students achieve their dreams of getting into IITs, AIIMS, and other premier institutions.</p>
+    <p class="about-text">The institute is known for its rigorous academic curriculum, experienced faculty members, and a highly structured approach to exam preparation. Allen's study material is considered among the best in the industry and its mock test series closely mirrors actual exam patterns.</p>
+    <div class="highlights-grid">
+      <div class="highlight-item"><span class="hi-icon">🏆</span><span class="hi-text">2,50,000+ Selections till date</span></div>
+      <div class="highlight-item"><span class="hi-icon">👨‍🏫</span><span class="hi-text">500+ Expert Faculty Members</span></div>
+      <div class="highlight-item"><span class="hi-icon">📚</span><span class="hi-text">World-class Study Material</span></div>
+      <div class="highlight-item"><span class="hi-icon">🧪</span><span class="hi-text">Regular Mock Test Series</span></div>
+      <div class="highlight-item"><span class="hi-icon">🏫</span><span class="hi-text">State-of-the-art Infrastructure</span></div>
+      <div class="highlight-item"><span class="hi-icon">📱</span><span class="hi-text">Online + Offline Hybrid Mode</span></div>
     </div>
-
-    <!-- KEY INFO -->
-    <div class="section">
-      <div class="sec-title">📋 Key <span>Information</span></div>
-      <div class="info-grid">
-        <div class="info-box"><div class="ib-icon">📅</div><div class="ib-lbl">Established</div><div class="ib-val">1988</div></div>
-        <div class="info-box"><div class="ib-icon">📍</div><div class="ib-lbl">Location</div><div class="ib-val">Kota, Rajasthan</div></div>
-        <div class="info-box"><div class="ib-icon">👥</div><div class="ib-lbl">Students/Year</div><div class="ib-val">50,000+</div></div>
-        <div class="info-box"><div class="ib-icon">👨‍🏫</div><div class="ib-lbl">Faculty Count</div><div class="ib-val">500+</div></div>
-        <div class="info-box"><div class="ib-icon">🏫</div><div class="ib-lbl">Centres</div><div class="ib-val">20+ Cities</div></div>
-        <div class="info-box"><div class="ib-icon">💻</div><div class="ib-lbl">Mode</div><div class="ib-val">Online + Offline</div></div>
-        <div class="info-box"><div class="ib-icon">🌐</div><div class="ib-lbl">Website</div><div class="ib-val">allen.ac.in</div></div>
-        <div class="info-box"><div class="ib-icon">📞</div><div class="ib-lbl">Helpline</div><div class="ib-val">1800-XXX-XXXX</div></div>
-      </div>
-    </div>
-
-    <!-- COURSES -->
-    <div class="section" id="courses">
-      <div class="sec-title">📚 Courses & <span>Batches</span></div>
-      <div class="course-list">
-        <div class="course-item">
-          <div class="ci-left">
-            <h4>JEE Main + Advanced (2 Year)</h4>
-            <p>Class 11 → JEE | 6 days/week | Morning & Evening batches</p>
-          </div>
-          <div class="ci-right">
-            <div class="ci-fee">₹1.6L/yr</div>
-            <div class="ci-badge">Most Popular</div>
-          </div>
-        </div>
-        <div class="course-item">
-          <div class="ci-left">
-            <h4>NEET UG (2 Year)</h4>
-            <p>Class 11 → NEET | 6 days/week | Biology focus</p>
-          </div>
-          <div class="ci-right">
-            <div class="ci-fee">₹1.5L/yr</div>
-            <div class="ci-badge">High Demand</div>
-          </div>
-        </div>
-        <div class="course-item">
-          <div class="ci-left">
-            <h4>JEE Crash Course (1 Year)</h4>
-            <p>Class 12 dropper | Intensive | Daily 8 hrs</p>
-          </div>
-          <div class="ci-right">
-            <div class="ci-fee">₹1.2L/yr</div>
-            <div class="ci-badge">Dropper Batch</div>
-          </div>
-        </div>
-        <div class="course-item">
-          <div class="ci-left">
-            <h4>NEET Crash Course (1 Year)</h4>
-            <p>Class 12 dropper | Intensive | Daily 8 hrs</p>
-          </div>
-          <div class="ci-right">
-            <div class="ci-fee">₹1.1L/yr</div>
-            <div class="ci-badge">Dropper Batch</div>
-          </div>
-        </div>
-        <div class="course-item">
-          <div class="ci-left">
-            <h4>CUET Foundation</h4>
-            <p>Class 12 | Part-time | Weekends</p>
-          </div>
-          <div class="ci-right">
-            <div class="ci-fee">₹60K/yr</div>
-            <div class="ci-badge">New Batch</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FACULTY -->
-    <div class="section" id="faculty">
-      <div class="sec-title">👨‍🏫 Our <span>Faculty</span></div>
-      <div class="faculty-grid">
-        <div class="faculty-card">
-          <div class="fc-avatar av-navy">RK</div>
-          <div class="fc-name">Dr. R.K. Verma</div>
-          <div class="fc-sub">Physics | IIT Delhi</div>
-          <div class="fc-tag">15+ yrs exp</div>
-        </div>
-        <div class="faculty-card">
-          <div class="fc-avatar av-red">SP</div>
-          <div class="fc-name">Dr. S. Patel</div>
-          <div class="fc-sub">Chemistry | IIT Bombay</div>
-          <div class="fc-tag">12+ yrs exp</div>
-        </div>
-        <div class="faculty-card">
-          <div class="fc-avatar av-green">AM</div>
-          <div class="fc-name">Prof. A. Mehta</div>
-          <div class="fc-sub">Mathematics | IIT KGP</div>
-          <div class="fc-tag">18+ yrs exp</div>
-        </div>
-        <div class="faculty-card">
-          <div class="fc-avatar av-purple">NK</div>
-          <div class="fc-name">Dr. N. Kumar</div>
-          <div class="fc-sub">Biology | AIIMS Delhi</div>
-          <div class="fc-tag">10+ yrs exp</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RESULTS -->
-    <div class="section" id="results">
-      <div class="sec-title">🏆 Past <span>Results</span></div>
-      <div class="results-row">
-        <div class="result-box"><div class="rb-num">2,450+</div><div class="rb-lbl">JEE Selections 2024</div></div>
-        <div class="result-box"><div class="rb-num">3,100+</div><div class="rb-lbl">NEET Selections 2024</div></div>
-        <div class="result-box"><div class="rb-num">82%</div><div class="rb-lbl">Overall Success Rate</div></div>
-      </div>
-      <div class="sec-title" style="margin-top:1.2rem;">🥇 Top <span>Rankers 2024</span></div>
-      <div class="topper-list">
-        <div class="topper-item">
-          <div class="topper-rank">AIR 3</div>
-          <div class="topper-info"><h4>Priya Sharma</h4><p>JEE Advanced 2024 · Score: 336/360</p></div>
-        </div>
-        <div class="topper-item">
-          <div class="topper-rank">AIR 7</div>
-          <div class="topper-info"><h4>Arjun Gupta</h4><p>JEE Advanced 2024 · Score: 328/360</p></div>
-        </div>
-        <div class="topper-item">
-          <div class="topper-rank">AIR 12</div>
-          <div class="topper-info"><h4>Sneha Verma</h4><p>NEET 2024 · Score: 715/720</p></div>
-        </div>
-        <div class="topper-item">
-          <div class="topper-rank">AIR 19</div>
-          <div class="topper-info"><h4>Rohan Singh</h4><p>NEET 2024 · Score: 710/720</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- REVIEWS -->
-    <div class="section" id="reviews">
-      <div class="sec-title">⭐ Student <span>Reviews</span></div>
-
-      <!-- Write Review -->
-      <div class="write-review">
-        <h4>✍️ Write a Review</h4>
-        <p>Share your experience to help other students make the right choice</p>
-        <div class="star-select" id="starSelect">
-          <span onclick="setStars(1)">★</span>
-          <span onclick="setStars(2)">★</span>
-          <span onclick="setStars(3)">★</span>
-          <span onclick="setStars(4)">★</span>
-          <span onclick="setStars(5)">★</span>
-        </div>
-        <textarea class="review-textarea" rows="3" placeholder="Share your experience at Allen Career Institute…"></textarea>
-        <button class="btn-submit-review" onclick="submitReview()">Submit Review</button>
-      </div>
-
-      <!-- Rating Summary -->
-      <div class="rating-summary">
-        <div class="big-rating">
-          <div class="big-num">4.8</div>
-          <div class="big-stars">★★★★★</div>
-          <div class="big-count">1,530 reviews</div>
-        </div>
-        <div class="rating-bars">
-          <div class="bar-row"><span class="bar-lbl">5★</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span class="bar-pct">78%</span></div>
-          <div class="bar-row"><span class="bar-lbl">4★</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><span class="bar-pct">14%</span></div>
-          <div class="bar-row"><span class="bar-lbl">3★</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-pct">5%</span></div>
-          <div class="bar-row"><span class="bar-lbl">2★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="bar-pct">2%</span></div>
-          <div class="bar-row"><span class="bar-lbl">1★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="bar-pct">1%</span></div>
-        </div>
-      </div>
-
-      <!-- Review Cards -->
-      <div class="reviews-list">
-        <div class="review-card">
-          <div class="rev-header">
-            <div class="rev-avatar av-navy">AK</div>
-            <div><div class="rev-name">Arjun Kumar</div><div class="rev-meta">JEE Advanced 2024 · AIR 412 · Verified Student</div></div>
-          </div>
-          <div class="rev-stars">★★★★★</div>
-          <p class="rev-text">"Allen completely transformed my preparation. The faculty is world-class and the study material is unmatched. The mock test series was exactly like the real JEE paper. Got into IIT Bombay CSE — couldn't have done it without Allen!"</p>
-          <div class="rev-tags"><span class="rev-tag">Great Faculty</span><span class="rev-tag">Best Material</span><span class="rev-tag">Mock Tests</span></div>
-        </div>
-        <div class="review-card">
-          <div class="rev-header">
-            <div class="rev-avatar av-red">PS</div>
-            <div><div class="rev-name">Priya Sharma</div><div class="rev-meta">NEET 2024 · AIR 890 · Verified Student</div></div>
-          </div>
-          <div class="rev-stars">★★★★★</div>
-          <p class="rev-text">"The NEET program is absolutely top-notch. Biology faculty is exceptional. The hostel facilities are good and the campus environment keeps you motivated throughout the year. Cleared AIIMS Delhi in my first attempt!"</p>
-          <div class="rev-tags"><span class="rev-tag">NEET Expert</span><span class="rev-tag">Good Hostel</span><span class="rev-tag">Motivating</span></div>
-        </div>
-        <div class="review-card">
-          <div class="rev-header">
-            <div class="rev-avatar av-green">RS</div>
-            <div><div class="rev-name">Rahul Singh</div><div class="rev-meta">JEE Main 2024 · 97.8 Percentile · Verified Student</div></div>
-          </div>
-          <div class="rev-stars">★★★★☆</div>
-          <p class="rev-text">"Very good institute overall. Physics and Chemistry faculty are brilliant. The only downside is the batch size can be a bit large at times. But the regular doubt sessions help a lot. Would definitely recommend for JEE preparation."</p>
-          <div class="rev-tags"><span class="rev-tag">Physics Expert</span><span class="rev-tag">Doubt Sessions</span></div>
-        </div>
-      </div>
-      <button class="load-more">Load More Reviews</button>
-    </div>
-
   </div>
 
-  <!-- RIGHT SIDEBAR -->
-  <aside class="detail-sidebar">
+  <!-- PHOTO GALLERY -->
+  <div class="section" id="gallery">
+    <div class="sec-title">📸 Institute <em>Photos</em></div>
+    <div class="gallery-grid">
 
-    <!-- Apply Card -->
-    <div class="apply-card">
-      <div class="sc-title">🚀 Ready to Apply?</div>
-      <p>Secure your seat at Allen Career Institute. Limited seats available for the upcoming batch.</p>
-      <button class="btn-apply-sidebar" onclick="location.href='login.html'">Apply Now — Free</button>
-      <button class="btn-brochure">📄 Download Brochure</button>
+      <div class="gallery-item" onclick="openLight('gi-1','Main Campus Building')">
+        <div class="gallery-img gi-1">🏫</div>
+        <div class="gallery-overlay">View Photo</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLight('gi-2','Modern Classrooms')">
+        <div class="gallery-img gi-2">🖥️</div>
+        <div class="gallery-overlay">View Photo</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLight('gi-3','Science Laboratory')">
+        <div class="gallery-img gi-3">🔬</div>
+        <div class="gallery-overlay">View Photo</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLight('gi-4','Library & Study Hall')">
+        <div class="gallery-img gi-4">📚</div>
+        <div class="gallery-overlay">View Photo</div>
+      </div>
+
+      <div class="gallery-item" style="position:relative;" onclick="openLight('gi-5','Student Hostel')">
+        <div class="gallery-img gi-5">🏠</div>
+        <div class="gallery-overlay">View Photo</div>
+        <div class="gallery-more">+12 More</div>
+      </div>
+
     </div>
+  </div>
 
-    <!-- Contact -->
-    <div class="sidebar-card">
-      <div class="sc-title">📞 Contact & Info</div>
-      <div class="contact-row">
-        <div class="cr-icon">📞</div>
-        <div><div class="cr-label">Phone</div><div class="cr-val">1800-XXX-XXXX</div></div>
+  <!-- KEY INFO -->
+  <div class="section">
+    <div class="sec-title">📋 Key <em>Information</em></div>
+    <div class="info-grid">
+      <div class="info-box"><div class="ib-icon">📅</div><div class="ib-lbl">Established</div><div class="ib-val">1988</div></div>
+      <div class="info-box"><div class="ib-icon">📍</div><div class="ib-lbl">Location</div><div class="ib-val">Kota, Rajasthan</div></div>
+      <div class="info-box"><div class="ib-icon">👥</div><div class="ib-lbl">Students/Year</div><div class="ib-val">50,000+</div></div>
+      <div class="info-box"><div class="ib-icon">👨‍🏫</div><div class="ib-lbl">Faculty</div><div class="ib-val">500+</div></div>
+      <div class="info-box"><div class="ib-icon">🏫</div><div class="ib-lbl">Centres</div><div class="ib-val">20+ Cities</div></div>
+      <div class="info-box"><div class="ib-icon">💻</div><div class="ib-lbl">Mode</div><div class="ib-val">Online + Offline</div></div>
+      <div class="info-box"><div class="ib-icon">🌐</div><div class="ib-lbl">Website</div><div class="ib-val">allen.ac.in</div></div>
+      <div class="info-box"><div class="ib-icon">🏅</div><div class="ib-lbl">Accreditation</div><div class="ib-val">ISO Certified</div></div>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <div class="section" id="courses">
+    <div class="sec-title">📚 Courses & <em>Batches</em></div>
+    <div class="course-list">
+      <div class="course-item">
+        <div class="ci-left"><h4>JEE Main + Advanced (2 Year)</h4><p>Class 11 → JEE · 6 days/week · Morning & Evening batches</p></div>
+        <div><div class="ci-fee">₹1.6L/yr</div><div class="ci-badge">Most Popular</div></div>
       </div>
-      <div class="contact-row">
-        <div class="cr-icon">📧</div>
-        <div><div class="cr-label">Email</div><div class="cr-val">info@allen.ac.in</div></div>
+      <div class="course-item">
+        <div class="ci-left"><h4>NEET UG (2 Year)</h4><p>Class 11 → NEET · 6 days/week · Biology focus</p></div>
+        <div><div class="ci-fee">₹1.5L/yr</div><div class="ci-badge">High Demand</div></div>
       </div>
-      <div class="contact-row">
-        <div class="cr-icon">📍</div>
-        <div><div class="cr-label">Address</div><div class="cr-val">CP-6, Indra Vihar, Kota</div></div>
+      <div class="course-item">
+        <div class="ci-left"><h4>JEE Crash Course (1 Year)</h4><p>Class 12 dropper · Intensive · Daily 8 hrs</p></div>
+        <div><div class="ci-fee">₹1.2L/yr</div><div class="ci-badge">Dropper Batch</div></div>
       </div>
-      <div class="contact-row">
-        <div class="cr-icon">🌐</div>
-        <div><div class="cr-label">Website</div><div class="cr-val">allen.ac.in</div></div>
+      <div class="course-item">
+        <div class="ci-left"><h4>NEET Crash Course (1 Year)</h4><p>Class 12 dropper · Intensive · Daily 8 hrs</p></div>
+        <div><div class="ci-fee">₹1.1L/yr</div><div class="ci-badge">Dropper Batch</div></div>
+      </div>
+      <div class="course-item">
+        <div class="ci-left"><h4>CUET Foundation</h4><p>Class 12 · Part-time · Weekends only</p></div>
+        <div><div class="ci-fee">₹60K/yr</div><div class="ci-badge">New Batch</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Similar Institutes -->
-    <div class="sidebar-card">
-      <div class="sc-title">🏫 Similar Institutes</div>
-      <div class="similar-item" onclick="location.href='detail.html'">
-        <div class="si-icon">📚</div>
-        <div class="si-info">
-          <div class="si-name">Resonance Institute</div>
-          <div class="si-meta">Kota · JEE, CUET</div>
-          <div class="si-rating">★★★★☆ 4.5</div>
+  <!-- FACULTY — DETAILED -->
+  <div class="section" id="faculty">
+    <div class="sec-title">👨‍🏫 Our <em>Faculty</em></div>
+    <div class="faculty-grid">
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-1">RK</div>
+          <div class="fc-header">
+            <h4>Dr. R.K. Verma</h4>
+            <div class="fc-subject">Physics · JEE Advanced</div>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 IIT Delhi · M.Tech + PhD</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">15+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">4,200+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">Specialises in Mechanics and Electromagnetism. Known for simplifying complex topics with real-world analogies. 95% of his students clear JEE Mains.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">Best Faculty 2023</span>
+            <span class="fc-ach">AIR 1 Mentor</span>
+          </div>
         </div>
       </div>
-      <div class="similar-item" onclick="location.href='detail.html'">
-        <div class="si-icon">⚗️</div>
-        <div class="si-info">
-          <div class="si-name">Aakash Institute</div>
-          <div class="si-meta">Delhi · NEET, JEE</div>
-          <div class="si-rating">★★★★★ 4.7</div>
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-2">SP</div>
+          <div class="fc-header">
+            <h4>Dr. Sunita Patel</h4>
+            <div class="fc-subject">Chemistry · JEE + NEET</div>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 IIT Bombay · M.Sc + PhD</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">12+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">3,800+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">Expert in Organic and Physical Chemistry. Her structured approach to reaction mechanisms has helped hundreds of students crack AIIMS and IIT chemistry sections.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">Top Educator Award</span>
+            <span class="fc-ach">5★ Rating</span>
+          </div>
         </div>
       </div>
-      <div class="similar-item" onclick="location.href='detail.html'">
-        <div class="si-icon">🔬</div>
-        <div class="si-info">
-          <div class="si-name">FIITJEE Delhi</div>
-          <div class="si-meta">Delhi · JEE, CUET</div>
-          <div class="si-rating">★★★★☆ 4.3</div>
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-3">AM</div>
+          <div class="fc-header">
+            <h4>Prof. Anil Mehta</h4>
+            <div class="fc-subject">Mathematics · JEE</div>
+          </div>
         </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 IIT Kharagpur · B.Tech + M.Tech</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">18+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">5,500+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">The most sought-after maths faculty in Kota. His shortcut techniques for Calculus and Algebra are legendary among JEE aspirants across India.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">Most Popular</span>
+            <span class="fc-ach">18 Yr Legacy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-4">NK</div>
+          <div class="fc-header">
+            <h4>Dr. Neha Kumar</h4>
+            <div class="fc-subject">Biology · NEET</div>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 AIIMS Delhi · MBBS + MD</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">10+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">2,900+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">A practising doctor turned educator. Her clinical insights into Human Physiology and Genetics give NEET students a major edge over textbook-only preparation.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">AIIMS Graduate</span>
+            <span class="fc-ach">NEET Specialist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-5">VS</div>
+          <div class="fc-header">
+            <h4>Mr. Vikram Singh</h4>
+            <div class="fc-subject">Physics · NEET</div>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 IIT Roorkee · B.Tech</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">8+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">2,100+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">Young and energetic faculty specialising in Optics and Modern Physics. His YouTube channel has over 500K subscribers and his teaching style connects instantly with students.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">500K YouTube</span>
+            <span class="fc-ach">Rising Star</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="fc-top">
+          <div class="fc-avatar av-6">PG</div>
+          <div class="fc-header">
+            <h4>Dr. Priya Gupta</h4>
+            <div class="fc-subject">Chemistry · NEET</div>
+          </div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-qual">🎓 Delhi University · PhD Chemistry</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num">11+</div><div class="fc-stat-lbl">Yrs Exp</div></div>
+            <div class="fc-stat"><div class="fc-stat-num">3,200+</div><div class="fc-stat-lbl">Students</div></div>
+          </div>
+          <div class="fc-desc">Specialises in Inorganic Chemistry and Biomolecules for NEET. Her concise revision notes are used by thousands of NEET aspirants across India every year.</div>
+          <div class="fc-achievements">
+            <span class="fc-ach">Author · 2 Books</span>
+            <span class="fc-ach">NEET Expert</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="section" id="results">
+    <div class="sec-title">🏆 Past <em>Results</em></div>
+    <div class="results-row">
+      <div class="result-box"><div class="rb-num">2,450+</div><div class="rb-lbl">JEE Selections 2024</div></div>
+      <div class="result-box"><div class="rb-num">3,100+</div><div class="rb-lbl">NEET Selections 2024</div></div>
+      <div class="result-box"><div class="rb-num">82%</div><div class="rb-lbl">Overall Success Rate</div></div>
+    </div>
+    <div class="sec-title" style="margin-top:1.2rem;">🥇 Top <em>Rankers 2024</em></div>
+    <div class="topper-list">
+      <div class="topper-item"><div class="topper-rank">AIR 3</div><div><div style="font-weight:700;font-size:0.88rem;color:var(--navy-dark)">Priya Sharma</div><div style="font-size:0.76rem;color:var(--muted)">JEE Advanced 2024 · Score: 336/360</div></div></div>
+      <div class="topper-item"><div class="topper-rank">AIR 7</div><div><div style="font-weight:700;font-size:0.88rem;color:var(--navy-dark)">Arjun Gupta</div><div style="font-size:0.76rem;color:var(--muted)">JEE Advanced 2024 · Score: 328/360</div></div></div>
+      <div class="topper-item"><div class="topper-rank">AIR 12</div><div><div style="font-weight:700;font-size:0.88rem;color:var(--navy-dark)">Sneha Verma</div><div style="font-size:0.76rem;color:var(--muted)">NEET 2024 · Score: 715/720</div></div></div>
+      <div class="topper-item"><div class="topper-rank">AIR 19</div><div><div style="font-weight:700;font-size:0.88rem;color:var(--navy-dark)">Rohan Singh</div><div style="font-size:0.76rem;color:var(--muted)">NEET 2024 · Score: 710/720</div></div></div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section" id="reviews">
+    <div class="sec-title">⭐ Student <em>Reviews</em></div>
+
+    <div class="write-review">
+      <h4>✍️ Write a Review</h4>
+      <p>Help other students by sharing your honest experience</p>
+      <div class="star-picker" id="starPicker">
+        <span onclick="setStars(1)">★</span>
+        <span onclick="setStars(2)">★</span>
+        <span onclick="setStars(3)">★</span>
+        <span onclick="setStars(4)">★</span>
+        <span onclick="setStars(5)">★</span>
+      </div>
+      <textarea class="rev-input" rows="3" placeholder="Share your experience at Allen Career Institute…"></textarea>
+      <button class="btn-sub-review" onclick="submitReview()">Submit Review</button>
+    </div>
+
+    <div class="rating-summary">
+      <div>
+        <div class="big-num">4.8</div>
+        <div class="big-stars">★★★★★</div>
+        <div class="big-count">1,530 reviews</div>
+      </div>
+      <div class="rating-bars">
+        <div class="bar-row"><span class="bar-lbl">5★</span><div class="bar-track"><div class="bar-fill" data-w="78%"></div></div><span class="bar-pct">78%</span></div>
+        <div class="bar-row"><span class="bar-lbl">4★</span><div class="bar-track"><div class="bar-fill" data-w="14%"></div></div><span class="bar-pct">14%</span></div>
+        <div class="bar-row"><span class="bar-lbl">3★</span><div class="bar-track"><div class="bar-fill" data-w="5%"></div></div><span class="bar-pct">5%</span></div>
+        <div class="bar-row"><span class="bar-lbl">2★</span><div class="bar-track"><div class="bar-fill" data-w="2%"></div></div><span class="bar-pct">2%</span></div>
+        <div class="bar-row"><span class="bar-lbl">1★</span><div class="bar-track"><div class="bar-fill" data-w="1%"></div></div><span class="bar-pct">1%</span></div>
       </div>
     </div>
 
-  </aside>
+    <div class="reviews-list">
+      <div class="review-card">
+        <div class="rev-header">
+          <div class="rev-avatar av-1">AK</div>
+          <div><div class="rev-name">Arjun Kumar</div><div class="rev-meta">JEE Advanced 2024 · AIR 412 · ✅ Verified</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Allen completely transformed my preparation. Faculty is world-class and the study material is unmatched. Mock test series was exactly like the real JEE. Got into IIT Bombay CSE!"</p>
+        <div class="rev-tags"><span class="rev-tag">Great Faculty</span><span class="rev-tag">Best Material</span><span class="rev-tag">Mock Tests</span></div>
+      </div>
+      <div class="review-card">
+        <div class="rev-header">
+          <div class="rev-avatar av-2">PS</div>
+          <div><div class="rev-name">Priya Sharma</div><div class="rev-meta">NEET 2024 · AIR 890 · ✅ Verified</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"The NEET program is absolutely top-notch. Biology faculty is exceptional. Campus environment keeps you motivated all year. Cleared AIIMS Delhi in my very first attempt!"</p>
+        <div class="rev-tags"><span class="rev-tag">NEET Expert</span><span class="rev-tag">Motivating</span><span class="rev-tag">Good Hostel</span></div>
+      </div>
+      <div class="review-card">
+        <div class="rev-header">
+          <div class="rev-avatar av-3">RS</div>
+          <div><div class="rev-name">Rahul Singh</div><div class="rev-meta">JEE Main 2024 · 97.8 Percentile · ✅ Verified</div></div>
+        </div>
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text">"Very good institute overall. Physics and Maths faculty are brilliant. Batch size can be large but regular doubt sessions really help. Would definitely recommend for JEE preparation."</p>
+        <div class="rev-tags"><span class="rev-tag">Physics Expert</span><span class="rev-tag">Doubt Sessions</span></div>
+      </div>
+    </div>
+    <button class="load-more-btn">Load More Reviews</button>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<aside class="detail-sidebar">
+  <div class="apply-card">
+    <div class="sc-title">🚀 Ready to Apply?</div>
+    <p>Secure your seat at Allen Career Institute. Limited seats available for the upcoming batch.</p>
+    <button class="btn-apply-side" onclick="location.href='login.html'">Apply Now — Free</button>
+    <button class="btn-brochure">📄 Download Brochure</button>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sc-title">📞 Contact & Info</div>
+    <div class="contact-row"><div class="cr-icon">📞</div><div><div class="cr-lbl">Phone</div><div class="cr-val">1800-XXX-XXXX</div></div></div>
+    <div class="contact-row"><div class="cr-icon">📧</div><div><div class="cr-lbl">Email</div><div class="cr-val">info@allen.ac.in</div></div></div>
+    <div class="contact-row"><div class="cr-icon">📍</div><div><div class="cr-lbl">Address</div><div class="cr-val">CP-6, Indra Vihar, Kota</div></div></div>
+    <div class="contact-row"><div class="cr-icon">🌐</div><div><div class="cr-lbl">Website</div><div class="cr-val">allen.ac.in</div></div></div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sc-title">🏫 Similar Institutes</div>
+    <a href="detail.html" class="similar-item">
+      <div class="si-icon">📚</div>
+      <div><div class="si-name">Resonance Institute</div><div class="si-meta">Kota · JEE, CUET</div><div class="si-stars">★★★★☆ 4.5</div></div>
+    </a>
+    <a href="detail.html" class="similar-item">
+      <div class="si-icon">⚗️</div>
+      <div><div class="si-name">Aakash Institute</div><div class="si-meta">Delhi · NEET, JEE</div><div class="si-stars">★★★★★ 4.7</div></div>
+    </a>
+    <a href="detail.html" class="similar-item">
+      <div class="si-icon">🔬</div>
+      <div><div class="si-name">FIITJEE Delhi</div><div class="si-meta">Delhi · JEE, CUET</div><div class="si-stars">★★★★☆ 4.3</div></div>
+    </a>
+  </div>
+</aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
+    <div class="lb-img" id="lbImg"></div>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
 </div>
 
 <script>
   // Hamburger
-  document.getElementById('ham').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  });
+  document.getElementById('ham').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
 
-  // Scroll to section
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
+  // Tab scroll
+  function goTo(id, el) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+    document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
   }
 
   // Update active tab on scroll
-  window.addEventListener('scroll', () => {
-    const sections = ['about','courses','faculty','results','reviews'];
-    sections.forEach(id => {
+  window.addEventListener('scroll',()=>{
+    ['about','gallery','courses','faculty','results','reviews'].forEach((id,i)=>{
       const el = document.getElementById(id);
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= 160 && rect.bottom >= 160) {
-        document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
-        const idx = sections.indexOf(id);
-        document.querySelectorAll('.tab-link')[idx]?.classList.add('active');
+      if(!el) return;
+      const r = el.getBoundingClientRect();
+      if(r.top<=160 && r.bottom>=160){
+        document.querySelectorAll('.tab-link').forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.tab-link')[i]?.classList.add('active');
       }
     });
   });
 
-  // Save toggle
-  function toggleSaveHero(btn) {
-    const saved = btn.textContent.includes('🔖');
-    btn.textContent = saved ? '❤️ Saved!' : '🔖 Save Institute';
+  // Save button
+  function toggleSave(btn){
+    const s = btn.textContent.includes('🔖');
+    btn.textContent = s ? '❤️ Saved!' : '🔖 Save';
   }
 
-  // Star rating
-  function setStars(n) {
-    const stars = document.querySelectorAll('#starSelect span');
-    stars.forEach((s, i) => s.classList.toggle('lit', i < n));
+  // Lightbox
+  const imgData = {
+    'gi-1':['🏫','Main Campus Building — Kota, Rajasthan'],
+    'gi-2':['🖥️','Modern Air-conditioned Classrooms'],
+    'gi-3':['🔬','State-of-the-art Science Laboratory'],
+    'gi-4':['📚','Library & 24hr Study Hall'],
+    'gi-5':['🏠','Student Hostel Facility']
+  };
+  function openLight(key, caption){
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lbImg').className = 'lb-img ' + key;
+    document.getElementById('lbImg').textContent = imgData[key][0];
+    document.getElementById('lbCaption').textContent = imgData[key][1];
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e.target === document.getElementById('lightbox'))
+      document.getElementById('lightbox').classList.remove('open');
+  }
+
+  // Star picker
+  function setStars(n){
+    document.querySelectorAll('#starPicker span').forEach((s,i)=>s.classList.toggle('lit',i<n));
   }
 
   // Submit review
-  function submitReview() {
-    const stars = document.querySelectorAll('#starSelect span.lit').length;
-    const text = document.querySelector('.review-textarea').value.trim();
-    if (!stars) { alert('Please select a star rating.'); return; }
-    if (text.length < 20) { alert('Please write at least 20 characters.'); return; }
-    alert('Thank you for your review! It will be published after verification.');
-    document.querySelector('.review-textarea').value = '';
+  function submitReview(){
+    const n = document.querySelectorAll('#starPicker span.lit').length;
+    const t = document.querySelector('.rev-input').value.trim();
+    if(!n){ alert('Please select a star rating first.'); return; }
+    if(t.length < 20){ alert('Please write at least 20 characters.'); return; }
+    alert('Thank you! Your review will be published after verification.');
+    document.querySelector('.rev-input').value='';
     setStars(0);
   }
 
   // Animate rating bars on load
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.querySelectorAll('.bar-fill').forEach(bar => {
-        const w = bar.style.width;
-        bar.style.width = '0%';
-        setTimeout(() => bar.style.width = w, 100);
-      });
-    }, 400);
-  });
+  setTimeout(()=>{
+    document.querySelectorAll('.bar-fill').forEach(b=>{
+      b.style.width = b.dataset.w;
+    });
+  }, 500);
 </script>
 </body>
 </html>
