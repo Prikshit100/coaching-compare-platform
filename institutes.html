@@ -383,6 +383,13 @@
       cursor: pointer; transition: all 0.2s;
     }
     .btn-apply:hover { background: var(--gold-dark); transform: scale(1.02); }
+    .btn-details {
+      flex: 1; background: var(--light); color: var(--navy); border: none;
+      padding: 0.72rem; border-radius: 12px;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .btn-details:hover { background: var(--border); }
     .btn-save {
       width: 44px; background: var(--light); border: none; border-radius: 12px;
       font-size: 1.1rem; cursor: pointer;
@@ -481,7 +488,7 @@
   <ul class="nav-center">
     <li><a href="index.html">Home</a></li>
     <li><a href="institutes.html" class="active">Institutes</a></li>
-    <li><a href="compare.html">Compare</a></li>
+    <li><a href="login.html?redirect=compare.html">Compare</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-right">
@@ -495,7 +502,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="institutes.html">Institutes</a>
-  <a href="compare.html">Compare</a>
+  <a href="login.html?redirect=compare.html">Compare</a>
   <a href="about.html">About</a>
   <a href="login.html">Log In</a>
   <a href="login.html">Sign Up Free →</a>
@@ -672,7 +679,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Allen Career Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -704,7 +712,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Aakash Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -735,7 +744,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Resonance Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -766,7 +776,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Centurion Defence Academy')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -797,7 +808,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'FIITJEE Delhi')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -828,7 +840,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Narayana Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -860,7 +873,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Vajiram & Ravi IAS')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -892,7 +906,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Mahendra\'s Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -923,7 +938,8 @@
           </div>
           <label class="compare-check"><input type="checkbox" class="compare-cb" onchange="updateCompare(this, 'Sri Chaitanya Institute')"/> Add to Compare</label>
           <div class="card-footer-btns">
-            <button class="btn-apply" onclick="location.href='detail.html'">Apply Now</button>
+            <button class="btn-details" onclick="location.href='detail.html'">View Details</button>
+            <button class="btn-apply" onclick="location.href='login.html?redirect=apply.html'">Apply Now</button>
             <button class="btn-save" onclick="toggleSave(this)">🔖</button>
           </div>
         </div>
@@ -955,7 +971,7 @@
 <!-- COMPARE BAR -->
 <div class="compare-bar" id="compareBar">
   <span>Comparing: <strong id="compareNames">0 institutes</strong></span>
-  <button class="btn-compare-now" onclick="location.href='compare.html'">⚖️ Compare Now</button>
+  <button class="btn-compare-now" onclick="location.href='login.html?redirect=compare.html'">⚖️ Compare Now</button>
   <button class="btn-clear-compare" onclick="clearCompare()">✕ Clear</button>
 </div>
 
