@@ -99,7 +99,7 @@
     .hero {
       background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 55%, #1e3a8a 100%);
       padding: 5.5rem 2rem 5rem;
-      position: relative; overflow: hidden;
+      position: relative; overflow: visible;
     }
     .hero::before {
       content: ''; position: absolute; top: -100px; right: -100px;
@@ -121,7 +121,7 @@
     .hero-inner {
       max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 420px;
-      gap: 3rem; align-items: center; position: relative; z-index: 1;
+      gap: 3rem; align-items: center; position: relative; z-index: 50;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -168,6 +168,7 @@
     .hero-tags {
       display: flex; gap: 0.5rem; flex-wrap: wrap;
       margin-bottom: 2rem; animation: fadeUp 0.7s 0.4s ease both;
+      position: relative; z-index: 0;
     }
     .hero-tag {
       background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
@@ -180,6 +181,7 @@
     .hero-cta {
       display: flex; gap: 1rem; flex-wrap: wrap;
       animation: fadeUp 0.7s 0.5s ease both;
+      position: relative; z-index: 0;
     }
     .btn-hero-primary {
       background: var(--gold); color: var(--navy-dark); border: none;
@@ -492,7 +494,7 @@
       <div class="hero-badge">🎓 India's #1 Coaching Discovery Platform</div>
       <h1>Find the <em>Best Coaching</em><br/>Near You</h1>
       <p class="hero-sub">Compare institutes, read real student reviews, and choose the right coaching for JEE, NEET, NDA, CUET & more — all in one place.</p>
-      <div class="search-wrap" style="position:relative;">
+      <div class="search-wrap" style="position:relative;z-index:500;">
         <input type="text" id="heroSearchInput" placeholder="Search by coaching name, city or exam…" autocomplete="off" oninput="showSuggestions(this.value)" onkeydown="handleSearchKey(event)"/>
         <button onclick="doSearch()">🔍 Search</button>
 
@@ -500,7 +502,8 @@
         <div id="searchSuggestions" style="
           display:none; position:absolute; top:calc(100% + 8px); left:0; right:0;
           background:white; border-radius:18px; border:1.5px solid var(--border);
-          box-shadow:0 16px 40px rgba(13,18,87,0.18); z-index:999; overflow:hidden;
+          box-shadow:0 16px 40px rgba(13,18,87,0.18); z-index:9999;
+          overflow:hidden; clip-path:none;
           animation:fadeUp 0.2s ease both;
         ">
           <!-- Recent searches -->
@@ -1025,4 +1028,3 @@
 </script>
 </body>
 </html>
-
