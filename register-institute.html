@@ -175,6 +175,7 @@
 
     /* ANIMATIONS */
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes slideUp { from{opacity:0;transform:translateX(-50%) translateY(20px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
 
     /* RESPONSIVE */
     @media(max-width:800px){
@@ -615,7 +616,7 @@
               <div class="up-icon">📋</div>
               <p><strong>Click to upload</strong></p>
               <p style="font-size:0.74rem;margin-top:0.2rem;">PDF, JPG · Max 5MB</p>
-              <input type="file" accept=".pdf,.jpg,.png" onchange="showFile(this)"/>
+              <input type="file" accept=".pdf,.jpg,.png" data-doc="reg" onchange="showFile(this)"/>
             </div>
             <div class="uploaded-file">✅ <span class="fname"></span></div>
           </div>
@@ -625,7 +626,7 @@
               <div class="up-icon">🪪</div>
               <p><strong>Click to upload</strong></p>
               <p style="font-size:0.74rem;margin-top:0.2rem;">PDF, JPG · Max 5MB</p>
-              <input type="file" accept=".pdf,.jpg,.png" onchange="showFile(this)"/>
+              <input type="file" accept=".pdf,.jpg,.png" data-doc="gst" onchange="showFile(this)"/>
             </div>
             <div class="uploaded-file">✅ <span class="fname"></span></div>
           </div>
@@ -637,7 +638,7 @@
               <div class="up-icon">🖼️</div>
               <p><strong>Click to upload logo</strong></p>
               <p style="font-size:0.74rem;margin-top:0.2rem;">PNG, JPG · Min 200×200px</p>
-              <input type="file" accept=".jpg,.png" onchange="showFile(this)"/>
+              <input type="file" accept=".jpg,.png" data-doc="logo" onchange="showFile(this)"/>
             </div>
             <div class="uploaded-file">✅ <span class="fname"></span></div>
           </div>
@@ -818,7 +819,12 @@
   }
 
   // Validation per step
+  // Track uploaded files per slot
+  const uploadedFiles = { reg: false, gst: false, logo: false };
+
   function validateStep(step) {
+
+    // STEP 1 — Contact Info
     if (step === 0) {
       const f = document.getElementById('contactFirst').value.trim();
       const l = document.getElementById('contactLast').value.trim();
@@ -827,25 +833,92 @@
       const pw = document.getElementById('pwd').value;
       const pw2 = document.getElementById('pwd2').value;
       const d = document.getElementById('designation').value;
-      if (!f||!l||!e||!p||!d) { alert('Please fill in all required fields.'); return false; }
-      if (pw.length < 8) { alert('Password must be at least 8 characters.'); return false; }
-      if (pw !== pw2) { alert('Passwords do not match.'); return false; }
+      if (!f||!l||!e||!p||!d) { showError('Please fill in all required fields.'); return false; }
+      if (!/^\S+@\S+\.\S+$/.test(e)) { showError('Please enter a valid email address.'); return false; }
+      if (pw.length < 8) { showError('Password must be at least 8 characters.'); return false; }
+      if (pw !== pw2) { showError('Passwords do not match. Please re-enter.'); return false; }
     }
+
+    // STEP 2 — Institute Details
     if (step === 1) {
       const n = document.getElementById('instName').value.trim();
       const a = document.getElementById('instAbout').value.trim();
-      if (!n) { alert('Please enter your institute name.'); return false; }
-      if (a.length < 50) { alert('Please write at least 50 characters about your institute.'); return false; }
+      if (!n) { showError('Please enter your institute name.'); return false; }
+      if (a.length < 50) { showError('Please write at least 50 characters in the About section.'); return false; }
       const exams = document.querySelectorAll('#examCbGroup input:checked');
-      if (exams.length === 0) { alert('Please select at least one exam.'); return false; }
+      if (exams.length === 0) { showError('Please select at least one exam you coach for.'); return false; }
+      const mode = document.querySelectorAll('#modeRg input:checked');
+      if (mode.length === 0) { showError('Please select your mode of teaching.'); return false; }
     }
-    if (step === 4) {
-      if (selectedPlan === -1) { alert('Please select a listing plan.'); return false; }
-      if (!document.getElementById('terms1').checked || !document.getElementById('terms2').checked || !document.getElementById('terms3').checked) {
-        alert('Please agree to all terms before submitting.'); return false;
+
+    // STEP 3 — Courses & Faculty
+    if (step === 2) {
+      const successRate = document.querySelector('#step2 input[type="number"]');
+      if (successRate && successRate.value === '') {
+        showError('Please enter your success rate percentage.'); return false;
       }
     }
+
+    // STEP 4 — Documents (CRITICAL)
+    if (step === 3) {
+      if (!uploadedFiles.reg) {
+        // Highlight missing upload area in red
+        document.querySelectorAll('[data-doc="reg"]').forEach(el => {
+          const area = el.closest('.input-group').querySelector('.upload-area');
+          if (area) { area.style.borderColor = 'var(--error)'; area.style.background = '#fff5f5'; }
+        });
+        showError('⚠️ Please upload your Institute Registration Certificate. It is mandatory for verification.');
+        return false;
+      }
+      if (!uploadedFiles.gst) {
+        document.querySelectorAll('[data-doc="gst"]').forEach(el => {
+          const area = el.closest('.input-group').querySelector('.upload-area');
+          if (area) { area.style.borderColor = 'var(--error)'; area.style.background = '#fff5f5'; }
+        });
+        showError('⚠️ Please upload your GST Certificate or PAN Card. It is mandatory for verification.');
+        return false;
+      }
+      if (!uploadedFiles.logo) {
+        document.querySelectorAll('[data-doc="logo"]').forEach(el => {
+          const area = el.closest('.input-group').querySelector('.upload-area');
+          if (area) { area.style.borderColor = 'var(--error)'; area.style.background = '#fff5f5'; }
+        });
+        showError('⚠️ Please upload your Institute Logo. Students see this on your profile.');
+        return false;
+      }
+    }
+
+    // STEP 5 — Plan & Terms
+    if (step === 4) {
+      if (selectedPlan === -1) { showError('Please select a listing plan to continue.'); return false; }
+      if (!document.getElementById('terms1').checked) { showError('Please confirm that all your institute information is accurate.'); return false; }
+      if (!document.getElementById('terms2').checked) { showError('Please agree to Classify\'s Terms and Commission Policy.'); return false; }
+      if (!document.getElementById('terms3').checked) { showError('Please agree to allow student reviews on your profile.'); return false; }
+    }
+
     return true;
+  }
+
+  // Nice error toast instead of plain alert
+  function showError(msg) {
+    // Remove existing toast
+    const existing = document.getElementById('errorToast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'errorToast';
+    toast.style.cssText = `
+      position:fixed; bottom:2rem; left:50%; transform:translateX(-50%);
+      background:#ef4444; color:white; padding:1rem 1.8rem;
+      border-radius:50px; font-family:'Syne',sans-serif; font-weight:700;
+      font-size:0.88rem; z-index:9999; box-shadow:0 8px 24px rgba(239,68,68,0.4);
+      animation:slideUp 0.3s ease both; max-width:90vw; text-align:center;
+    `;
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+
+    // Auto remove after 4 seconds
+    setTimeout(() => { if(toast.parentNode) toast.remove(); }, 4000);
   }
 
   // Checkbox toggle
@@ -878,16 +951,28 @@
     area.querySelector('input[type="file"]').click();
   }
 
-  // Show uploaded filename
+  // Show uploaded filename + track mandatory docs via data-doc attribute
   function showFile(input) {
     const files = input.files;
     if (!files.length) return;
     const names = Array.from(files).map(f => f.name).join(', ');
-    const display = input.closest('.input-group').querySelector('.uploaded-file');
+    const group = input.closest('.input-group');
+    const display = group.querySelector('.uploaded-file');
     if (display) {
       display.querySelector('.fname').textContent = names;
       display.classList.add('show');
+      const area = group.querySelector('.upload-area');
+      if (area) {
+        area.style.borderColor = 'var(--success)';
+        area.style.background = '#f0fdf4';
+        area.querySelector('.up-icon').textContent = '✅';
+      }
     }
+    // Track via data-doc attribute — reliable and simple
+    const doc = input.getAttribute('data-doc');
+    if (doc === 'reg')  uploadedFiles.reg  = true;
+    if (doc === 'gst')  uploadedFiles.gst  = true;
+    if (doc === 'logo') uploadedFiles.logo = true;
   }
 
   // Add course
